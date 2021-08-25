@@ -21,12 +21,13 @@ modules:
  - name: ovpcapfe-srv
  # ------------------------------------------------------------
    type: nodejs
-   path: gen/srv
+   path: ./
    parameters:
      buildpack: nodejs_buildpack
    requires:
     # Resources extracted from CAP configuration
     - name: ovpcapfe-db
+    - name: ovpcapfe-uaa
    provides:
     - name: srv-api      # required by consumers of CAP services (e.g. approuter)
       properties:
@@ -36,7 +37,7 @@ modules:
  - name: ovpcapfe-db-deployer
  # ------------------------------------------------------------
    type: hdb
-   path: gen/db  
+   path: db  
    parameters:
      buildpack: nodejs_buildpack
    requires:
@@ -56,3 +57,16 @@ resources:
      service-plan: hdi-shared
    properties:
      hdi-service-name: ${service-name}
+# ------------------------------------------------------------
+ - name: ovpcapfe-uaa
+# ------------------------------------------------------------
+   type: com.sap.xs.uaa
+   description: ovpcapfe-uaa
+   parameters:
+     path: ./xs-security.json
+     service: xsuaa
+     service-keys:
+      - name: ovpcapfe-uaa-key      
+   properties:
+     service-name: ovpcapfe-uaa
+     service-plan: application
