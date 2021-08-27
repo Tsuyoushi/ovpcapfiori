@@ -2,7 +2,7 @@ using capsrv as cp from '../db/schema';
 
 @path : 'service/cap'
 
-service capService @(requires: 'admin'){
+service capService @(requires: 'Admin'){
     entity SalesOrder as select from cp.SalesOrderType;
 
     @readonly
