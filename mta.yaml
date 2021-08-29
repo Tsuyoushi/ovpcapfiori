@@ -43,7 +43,9 @@ modules:
    requires:
     # 'hana' and 'xsuaa' resources extracted from CAP configuration
     - name: ovpcapfe-db
-
+      properties:
+        TARGET_CONTAINER: '~{hdi-service-name}'
+    - name: agendacap-db
 
 resources:
  # services extracted from CAP configuration
@@ -57,6 +59,15 @@ resources:
      service-plan: hdi-shared
    properties:
      hdi-service-name: ${service-name}
+# ------------------------------------------------------------
+ - name: agendacap-db
+# ------------------------------------------------------------
+   type: com.sap.xs.hdi-container
+   parameters:
+     service: hana  # or 'hanatrial' on trial landscapes
+     service-plan: hdi-shared
+   properties:
+     service-name: ${service-name}
 # ------------------------------------------------------------
  - name: ovpcapfe-uaa
 # ------------------------------------------------------------

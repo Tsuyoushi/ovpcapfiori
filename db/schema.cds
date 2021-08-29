@@ -36,3 +36,11 @@ entity SalesHistoryType : managed {
         companyCurrency_Text         : String(40)    @Common.Label : 'Long text';
         referenceAmount              : Integer;
 }
+
+@cds.persistence.exists
+entity ScheduleType : managed {
+    key ID          : UUID      @(Core.Computed : true)  @title : 'Key';
+        description : String(50)@Common.Label :                   'Description';
+        dateInit    : DateTime  @Common.Label :                   'Initial';
+        dateEnd     : DateTime  @Common.Label :                   'Final';
+}

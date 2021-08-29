@@ -1,0 +1,14 @@
+{
+    "agendacap-db": {
+        "object_owner": {
+            "container_roles": [
+                "Role_OVP#"
+            ]
+        },
+        "application_user": {
+            "container_roles": [
+                "Role_OVP"
+            ]
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "CAPSRV_SCHEDULETYPE": {
+        "target": {
+            "schema": "4B005D481054406A933E40EC1F841BB2",
+            "object": "SCHEDULE_SCHEDULETYPE"
+        }
+    }
+}
